@@ -1,0 +1,185 @@
+// boje
+   $primaryColor: #568654;
+   $secondaryColor: #c1be0a;
+   $bgdColor: #d1f0db;
+   $textColor: #0d251b;
+   $accentColor: #ff8fcf;
+
+// dimenzije
+   $containerWidth: 960px;
+
+// fontovi
+   $pisani: 'Courgette';
+
+@font-face {
+   font-family: 'WakeMeUp';
+   src: url('../fonts/WakeMeUp.ttf');
+}
+@font-face {
+   font-family: 'HeartJungle';
+   src: url('../fonts/Heartjungle.otf');
+}
+
+* {
+   box-sizing: border-box;
+}
+
+html, body {
+   margin: 0;
+}
+body {
+   background-color: $bgdColor;
+}
+h1, h2, h3, h4, h5, h6, p {
+   font-family: $pisani, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+   letter-spacing: 2px;
+}
+
+.game-title {
+   position: relative;
+   width: $containerWidth;
+   height: 120px;
+   margin: 0 auto;
+   span {
+      position: absolute;
+      font-family: 'WakeMeUp', serif;
+      font-size: 60px;
+      text-transform: uppercase;
+      top: 60px;
+      text-shadow: 1px 1px $textColor, 2px 2px $textColor, 3px 3px 6px rgba(0, 0, 0, 0.6);
+   }
+}
+.letter-16 { right: 50px; }
+.letter-15 { right: 100px; }
+.letter-14 { right: 150px; }
+.letter-13 { right: 200px; }
+.letter-12 { right: 250px; }
+.letter-11 { right: 300px; }
+.letter-10 { right: 350px; }
+.letter-1 { left: 50px; }
+.letter-2 { left: 100px; }
+.letter-3 { left: 150px; }
+.letter-4 { left: 200px; }
+.letter-5 { left: 250px; }
+.letter-6 { left: 300px; }
+.letter-7 { left: 350px; }
+.letter-8 { left: 400px; }
+.letter-9 { left: 450px; }
+.letter {
+   &::before {
+      content: '';
+      position: absolute;
+      height: 77px;
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      top: -65px;
+      left: 20px;
+      z-index: -1;
+      box-shadow: 3px 3px 1px 0 rgba(0, 0, 0, 0.1);
+   }
+}
+.letter {
+   transition: transform 3s ease-out;
+}
+.rotiraj {
+   transform: rotateY(360deg);
+}
+.game-container {
+   position: relative;
+   width: $containerWidth;
+   height: 600px;
+   border: 1px solid $textColor;
+   margin: 20px auto;
+   background-color: $primaryColor;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   box-shadow: 1px 1px 0 0 $textColor, 2px 2px 0 0 $textColor, 3px 3px 0 0 $textColor, 4px 4px 0 0 $textColor, 5px 5px 0 0 $textColor;
+}
+.zamisljeni-broj {
+   width: 300px;
+   height: 150px;
+   border: 1px solid darken($color: $primaryColor, $amount: 5);
+   border-radius: 16px;
+   background-color: lighten($color: $secondaryColor, $amount: 40);
+   margin-top: 20px;
+   box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.6) inset;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: 'HeartJungle';
+   font-size: 120px;
+   line-height: 120px;
+   letter-spacing: 10px;
+   color: $textColor;
+   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+.moj-broj {
+   position: absolute;
+   top: 300px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   input {
+      height: 150px;
+      width: 300px;
+      border: 1px solid darken($color: $primaryColor, $amount: 5);
+      border-radius: 16px;
+      background-color: lighten($color: $secondaryColor, $amount: 40);
+      box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.6) inset;
+      font-family: 'HeartJungle';
+      font-size: 120px;
+      line-height: 120px;
+      letter-spacing: 10px;
+      text-align: center;
+      -moz-appearance: textfield;
+      &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+         -webkit-appearance: none;
+      }
+   }
+   button {
+      height: 40px;
+      width: 300px;
+      border: 1px solid darken($color: $primaryColor, $amount: 5);
+      border-radius: 8px;
+      background-color: lighten($color: $secondaryColor, $amount: 40);
+      box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.6);
+      margin-top: 10px;
+      font-family: $pisani;
+      font-size: 22px;
+      line-height: 40px;
+      font-weight: bold;
+      cursor: pointer;
+   }
+}
+.start {
+   position: absolute;
+   width: 200px;
+   height: 80px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: lighten($color: $secondaryColor, $amount: 0);
+   border-radius: 16px;
+   font-family: $pisani;
+   font-size: 40px;
+   font-weight: bold;
+   top: 195px;
+   cursor: pointer;
+   box-shadow: 3px 3px 6px 0 rgba(0, 0, 0, 0.6);
+   z-index: 9;
+}
+.poruke {
+   position: absolute;
+   width: 800px;
+   height: 80px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: $pisani;
+   font-size: 40px;
+   top: 195px;
+   text-align: center;
+}
